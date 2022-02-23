@@ -18,4 +18,12 @@ pub fn main() {
 		*freq.entry(ch).or_insert(0) += 1;
 	}
 	println!("{:?}", freq);
+
+	let alphabet = "Alpha Beta Gamma Delta Gamma Gamma Delta Pamma";
+	let mut freq = HashMap::new();
+	for word in alphabet.split_whitespace() {
+		let x = freq.entry(word).or_insert(0);
+		*x += 1;
+	}
+	println!("{:?}", freq);
 }
