@@ -1,3 +1,10 @@
+*
+!*.*
+!*/
+*.exe
+*.pdb
+!Makefile*
+
 # Generated files
 /*/target/
 /testing/*.*
