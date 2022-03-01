@@ -7,6 +7,7 @@ fn main() {
     println!("{}", param);
 }
 
+#[allow(dead_code)]
 enum Gender {
     Male,
     Female
