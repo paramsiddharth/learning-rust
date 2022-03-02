@@ -1,3 +1,5 @@
+use demoiterators::Counter;
+
 fn main() {
     let v = vec![1, 2, 3];
 
@@ -12,10 +14,19 @@ fn main() {
     for val in plus_1 {
         println!("Got (plus 1): {}", val);
     }
+
+    let counter = Counter::new();
+
+    for count in counter {
+        print!("{} ", count);
+    }
+    println!();
 }
 
 #[cfg(test)]
 mod tests {
+    use super::*;
+
     #[test]
     fn iteration_demonstration() {
         let v = vec![1, 2, 3];
@@ -53,5 +64,27 @@ mod tests {
             .collect();
 
         assert_eq!(v3, vec![2, 4]);
+    }
+
+    #[test]
+    fn counter_test() {
+        let mut counter = Counter::new();
+
+        assert_eq!(counter.next(), Some(1));
+        assert_eq!(counter.next(), Some(2));
+        assert_eq!(counter.next(), Some(3));
+        assert_eq!(counter.next(), Some(4));
+        assert_eq!(counter.next(), Some(5));
+        assert_eq!(counter.next(), None);
+    }
+
+    #[test]
+    fn using_other_iterator_trait_methods() {
+        let sum: u32 = Counter::new()
+            .zip(Counter::new().skip(1))
+            .map(|(a, b)| a * b)
+            .filter(|x| x % 3 == 0)
+            .sum();
+        assert_eq!(18, sum);
     }
 }
