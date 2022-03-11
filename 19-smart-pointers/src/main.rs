@@ -2,6 +2,7 @@ mod boxes;
 #[path="./my-box.rs"]
 mod my_box;
 mod rc;
+mod refcell;
 
 use std::mem::drop;
 use my_box::MyBox;
@@ -19,4 +20,5 @@ fn main() {
 	assert_eq!(2, x);
 
 	rc::main();
+	refcell::main();
 }
