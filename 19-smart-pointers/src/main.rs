@@ -3,6 +3,8 @@ mod boxes;
 mod my_box;
 mod rc;
 mod refcell;
+#[path="./rc-refcell.rs"]
+mod rc_refcell;
 
 use std::mem::drop;
 use my_box::MyBox;
@@ -21,4 +23,5 @@ fn main() {
 
 	rc::main();
 	refcell::main();
+	rc_refcell::main();
 }
