@@ -1,6 +1,7 @@
 mod boxes;
 #[path="./my-box.rs"]
 mod my_box;
+mod rc;
 
 use std::mem::drop;
 use my_box::MyBox;
@@ -16,4 +17,6 @@ fn main() {
 	drop(y);
 	println!("Object dropped.");
 	assert_eq!(2, x);
+
+	rc::main();
 }
