@@ -11,11 +11,8 @@ pub fn main() {
 	let c = Cons(Rc::new(RefCell::new(4)), Rc::clone(&a));
 
 	*value.borrow_mut() -= 1;
-	match &b {
-		Cons(v, _) => {
-			*v.borrow_mut() -= 1
-		},
-		_ => ()
+	if let Cons(v, _) = &b {
+		*v.borrow_mut() -= 1;
 	}
 
 	println!("a = {:?}", a);

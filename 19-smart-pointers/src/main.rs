@@ -5,6 +5,9 @@ mod rc;
 mod refcell;
 #[path="./rc-refcell.rs"]
 mod rc_refcell;
+#[path="./ref-cycle.rs"]
+mod ref_cycle;
+mod weak;
 
 use std::mem::drop;
 use my_box::MyBox;
@@ -24,4 +27,6 @@ fn main() {
 	rc::main();
 	refcell::main();
 	rc_refcell::main();
+	ref_cycle::main();
+	weak::main();
 }
