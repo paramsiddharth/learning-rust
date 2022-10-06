@@ -1,0 +1,13 @@
+*
+!*.*
+!*/
+!src/
+*.exe
+*.pdb
+!Makefile*
+
+# Generated files
+/target/
+/*/target/
+/testing/*.*
+!/testing/*.rs
